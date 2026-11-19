@@ -93,7 +93,7 @@ V.set=()=>`<h2>Pengaturan & Backup</h2><div class="c"><div class="g3">${[['name'
 const imp=i=>{if(!IS_ADMIN)return alert('Hanya admin yang boleh restore data');const f=i.files[0];if(!f)return;f.text().then(t=>{const o=JSON.parse(t);if(!o.notas||!o.prods||!o.mats||!o.set) return alert('File bukan backup Fastrex');if(!confirm('Ganti seluruh data cloud dengan isi backup ini?'))return;S=o;S.demo=false;save();go();toast('Restore dikirim ke database')}).catch(()=>alert('File rusak'))},
 clr=()=>{if(!IS_ADMIN)return alert('Hanya admin yang boleh mengosongkan data');if(confirm('Hapus semua nota & kas? Katalog/stok tetap.')){S.notas=[];S.exp=[];S.demo=false;save();go()}};
 function go(){if(!S)return;$('#wn').textContent=S.set.name;const[r,a]=location.hash.slice(1).split('/');let k=V[r]?r:'dash';if(!IS_ADMIN&&['harga','kas','set'].includes(k)){location.hash='#dash';k='dash'}document.querySelectorAll('aside a').forEach(x=>{x.classList.toggle('on',x.dataset.r==k);x.style.display=(!IS_ADMIN&&['harga','kas','set'].includes(x.dataset.r))?'none':''});
-$('#v').innerHTML=V[k](a);if(k=='harga')cc();if(k=='nota'&&D)upd()}
+$('#v').innerHTML=V[k](a);if(k=='harga')cc();if(k=='nota'&&D)upd()} window.addEventListener('hashchange', go);
 
 $('#dt').textContent=new Date().toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 
