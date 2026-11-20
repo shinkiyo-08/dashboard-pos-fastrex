@@ -159,8 +159,8 @@ begin
   else
     -- Kasir hanya dapat mengubah nota dan stok. Data sensitif diambil kembali
     -- dari versi database, bukan dipercaya dari browser.
-    if (p_state - 'notas' - 'mats' - 'prods' - 'exp') is distinct from
-       (v_row.state - 'notas' - 'mats' - 'prods' - 'exp') then
+    if (p_state - 'notas' - 'mats' - 'prods' - 'exp' - 'cust') is distinct from
+       (v_row.state - 'notas' - 'mats' - 'prods' - 'exp' - 'cust') then
       raise exception 'Cashier role cannot edit store settings' using errcode = '42501';
     end if;
     if coalesce(p_state->'exp','[]'::jsonb) <> '[]'::jsonb then
@@ -216,7 +216,8 @@ begin
 
     v_merged_state := v_row.state || jsonb_build_object(
       'mats',v_merged_mats,
-      'notas',v_notes
+      'notas',v_notes,
+      'cust',coalesce(p_state->'cust',v_row.state->'cust','[]'::jsonb)
     );
   end if;
 
