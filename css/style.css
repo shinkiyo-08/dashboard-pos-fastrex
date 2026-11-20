@@ -41,3 +41,4 @@ button,.btn{padding:8px 14px;border:0;border-radius:10px;background:#e6eeff;colo
 
 .sg{position:absolute;top:100%;left:0;right:0;background:#fff;border-radius:10px;box-shadow:0 4px 16px #0003;z-index:9}.sg div{padding:8px 10px;cursor:pointer}.sg div:hover{background:#eff4ff}.kb{background:#acedff;color:#004e5c;padding:10px;border-radius:10px}
 .sb{width:100%;margin-bottom:10px}
+.sc{overflow:auto}.sc th{position:sticky;top:0;z-index:2}.stk{position:sticky;top:64px;z-index:6;background:#f8f9ff;padding-bottom:2px}.stk .c{margin-bottom:8px;padding:10px}@media(max-width:800px){.stk{top:0}}
