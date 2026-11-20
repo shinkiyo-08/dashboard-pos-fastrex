@@ -38,3 +38,5 @@ button,.btn{padding:8px 14px;border:0;border-radius:10px;background:#e6eeff;colo
 .header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 #user-label{font-size:11px;color:#444653}
 @media(max-width:800px){.header-actions{justify-content:flex-start}header{height:auto;min-height:60px;gap:8px;flex-wrap:wrap;padding:10px 14px}.auth-card{padding:22px}}
+
+.sg{position:absolute;top:100%;left:0;right:0;background:#fff;border-radius:10px;box-shadow:0 4px 16px #0003;z-index:9}.sg div{padding:8px 10px;cursor:pointer}.sg div:hover{background:#eff4ff}.kb{background:#acedff;color:#004e5c;padding:10px;border-radius:10px}
